@@ -2,6 +2,9 @@ package com.silmood.spotify_streamer;
 
 import android.content.Context;
 
+import com.silmood.spotify_streamer.interactor.ArtistSearchInteractor;
+import com.silmood.spotify_streamer.module.InteractorModule;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -20,7 +23,8 @@ import dagger.Component;
 @Singleton
 @Component(
         modules = {
-                SpotifyStreamerModule.class
+                SpotifyStreamerModule.class,
+                InteractorModule.class
         }
 )
 public interface SpotifyStreamerComponent {
@@ -28,4 +32,5 @@ public interface SpotifyStreamerComponent {
     void inject (SpotifyStreamerApp app);
 
     Context getContext();
+    ArtistSearchInteractor getArtistSearchInteractor();
 }

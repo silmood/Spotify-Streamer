@@ -11,7 +11,6 @@ import butterknife.ButterKnife;
 /**
  * Created by Pedro Antonio Hernández on 12/06/2015.
  *
- * I use Model View Presenter to maintain a cleaner architecture.
  *<p>
  * The activity only will execute operations that affect the UI. These operations are defined
  * by its view model and are triggered by its presenter.

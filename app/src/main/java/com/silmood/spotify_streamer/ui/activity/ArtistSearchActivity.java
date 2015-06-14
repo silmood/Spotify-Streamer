@@ -7,9 +7,10 @@ import com.silmood.spotify_streamer.R;
 import com.silmood.spotify_streamer.SpotifyStreamerComponent;
 import com.silmood.spotify_streamer.common.BaseActivity;
 import com.silmood.spotify_streamer.common.BasePresenter;
+import com.silmood.spotify_streamer.ui.modelview.ArtistSearchView;
 
 
-public class MainActivity extends BaseActivity {
+public class ArtistSearchActivity extends BaseActivity implements ArtistSearchView {
 
     @Override
     protected int getLayout() {
@@ -35,5 +36,20 @@ public class MainActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void setupList() {
+
+    }
+
+    @Override
+    public void resultsForArtistNotFound() {
+
+    }
+
+    @Override
+    public void resultsForArtistFound() {
+
     }
 }

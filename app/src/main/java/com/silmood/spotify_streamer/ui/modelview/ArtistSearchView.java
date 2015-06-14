@@ -13,6 +13,8 @@ public interface ArtistSearchView {
 
     void setupList();
 
+    void setupAdapter();
+
     void resultsForArtistNotFound();
 
     void resultsForArtistFound();

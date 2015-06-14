@@ -1,9 +1,12 @@
 package com.silmood.spotify_streamer.module;
 
+import android.content.Context;
+
 import com.silmood.spotify_streamer.component.ArtistSearchComponent;
 import com.silmood.spotify_streamer.interactor.ArtistSearchInteractor;
 import com.silmood.spotify_streamer.presenter.ArtistSearchPresenter;
 import com.silmood.spotify_streamer.ui.activity.ArtistSearchActivity;
+import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
 import com.silmood.spotify_streamer.ui.modelview.ArtistSearchView;
 
 import dagger.Module;
@@ -33,5 +36,10 @@ public class ArtistSearchModule {
     @Provides
     public ArtistSearchPresenter providePresenter(ArtistSearchView view, ArtistSearchInteractor interactor) {
         return new ArtistSearchPresenter(view, interactor);
+    }
+
+    @Provides
+    public SearchResultsAdapter provideAdapter(Context context) {
+        return new SearchResultsAdapter(context);
     }
 }

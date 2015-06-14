@@ -1,9 +1,11 @@
 package com.silmood.spotify_streamer.component;
 
 import com.silmood.spotify_streamer.ActivityScope;
+import com.silmood.spotify_streamer.SpotifyStreamerComponent;
 import com.silmood.spotify_streamer.module.ArtistSearchModule;
 import com.silmood.spotify_streamer.presenter.ArtistSearchPresenter;
 import com.silmood.spotify_streamer.ui.activity.ArtistSearchActivity;
+import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
 
 import dagger.Component;
 
@@ -17,6 +19,7 @@ import dagger.Component;
 
 @ActivityScope
 @Component(
+        dependencies = SpotifyStreamerComponent.class,
         modules = ArtistSearchModule.class
 )
 public interface ArtistSearchComponent {
@@ -24,4 +27,5 @@ public interface ArtistSearchComponent {
     void inject(ArtistSearchActivity searchActivity);
 
     ArtistSearchPresenter getPresenter();
+    SearchResultsAdapter getAdapter();
 }

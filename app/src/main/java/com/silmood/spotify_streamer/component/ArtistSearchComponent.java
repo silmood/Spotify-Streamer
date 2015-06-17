@@ -6,6 +6,7 @@ import com.silmood.spotify_streamer.module.ArtistSearchModule;
 import com.silmood.spotify_streamer.presenter.ArtistSearchPresenter;
 import com.silmood.spotify_streamer.ui.activity.ArtistSearchActivity;
 import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
+import com.silmood.spotify_streamer.ui.fragment.ArtistSearchFragment;
 
 import dagger.Component;
 
@@ -24,7 +25,7 @@ import dagger.Component;
 )
 public interface ArtistSearchComponent {
 
-    void inject(ArtistSearchActivity searchActivity);
+    void inject(ArtistSearchFragment searchFragment);
 
     ArtistSearchPresenter getPresenter();
     SearchResultsAdapter getAdapter();

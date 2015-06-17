@@ -47,7 +47,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         Artist currentArtist = artists.get(position);
 
         holder.setArtistName(currentArtist.getName());
-        holder.setAritistImage(currentArtist.getUrlImage());
+        holder.setArtistImage(currentArtist.getUrlImage());
     }
 
     @Override
@@ -147,7 +147,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
             artistName.setText(name);
         }
 
-        public void setAritistImage(String urlImage) {
+        public void setArtistImage(String urlImage) {
             Picasso.with(context)
                     .load(urlImage)
                     .resize(IMG_SIZE_PX, IMG_SIZE_PX)

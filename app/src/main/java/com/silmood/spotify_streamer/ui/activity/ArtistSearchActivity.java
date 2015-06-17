@@ -1,22 +1,12 @@
 package com.silmood.spotify_streamer.ui.activity;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 
 import com.silmood.spotify_streamer.R;
 import com.silmood.spotify_streamer.SpotifyStreamerComponent;
 import com.silmood.spotify_streamer.common.BaseActivity;
 import com.silmood.spotify_streamer.common.BasePresenter;
-import com.silmood.spotify_streamer.presenter.ArtistSearchPresenter;
-import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
-import com.silmood.spotify_streamer.ui.modelview.ArtistSearchView;
-
-import javax.inject.Inject;
-
-import butterknife.InjectView;
 
 /**
  * <p>
@@ -24,34 +14,22 @@ import butterknife.InjectView;
  *     issue a search for an artist.
  * </p>
  * */
-public class ArtistSearchActivity extends BaseActivity implements ArtistSearchView {
-
-    @Inject
-    ArtistSearchPresenter mSearchPresenter;
-
-    @Inject
-    SearchResultsAdapter mResultsAdapter;
-
-    @InjectView(R.id.etxt_search)
-    EditText mArtistSearchInput;
-
-    @InjectView(R.id.list_artist)
-    RecyclerView mArtistResultsList;
+public class ArtistSearchActivity extends BaseActivity{
 
     @Override
     protected int getLayout() {
-        return R.layout.activity_main;
+        return R.layout.activity_artist_search;
 
     }
 
     @Override
     protected BasePresenter getPresenter() {
-        return mSearchPresenter;
+        return null;
     }
 
     @Override
     public void setUpComponent(SpotifyStreamerComponent appComponent) {
-
+        //There isn't dependencies
     }
 
     @Override
@@ -60,29 +38,9 @@ public class ArtistSearchActivity extends BaseActivity implements ArtistSearchVi
         return true;
     }
 
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void setupList() {
-        mArtistResultsList.setLayoutManager(new LinearLayoutManager(this));
-        mArtistResultsList.setAdapter(mResultsAdapter);
-    }
 
-    @Override
-    public void setupAdapter() {
-        mResultsAdapter.setOnItemClickListener(mSearchPresenter);
-    }
-
-    @Override
-    public void resultsForArtistNotFound() {
-
-    }
-
-    @Override
-    public void resultsForArtistFound() {
-
-    }
 }

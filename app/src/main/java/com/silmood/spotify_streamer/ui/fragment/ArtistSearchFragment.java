@@ -71,6 +71,11 @@ public class ArtistSearchFragment extends BaseFragment implements ArtistSearchVi
     }
 
     @Override
+    public void setupSearchInput() {
+        mArtistSearchInput.addTextChangedListener(mSearchPresenter);
+    }
+
+    @Override
     public void resultsForArtistNotFound() {
 
     }

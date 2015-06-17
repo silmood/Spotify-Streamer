@@ -6,4 +6,8 @@ package com.silmood.spotify_streamer.interactor;
  * {@link ArtistSearchInteractor} implementation
  */
 public class ArtistSearchInteractorImpl implements ArtistSearchInteractor {
+    @Override
+    public void performSearch(String query) {
+
+    }
 }

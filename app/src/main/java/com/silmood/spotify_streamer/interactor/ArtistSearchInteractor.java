@@ -5,4 +5,6 @@ package com.silmood.spotify_streamer.interactor;
  *
  */
 public interface ArtistSearchInteractor {
+
+    void performSearch(String query);
 }

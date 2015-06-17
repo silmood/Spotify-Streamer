@@ -1,0 +1,19 @@
+package com.silmood.spotify_streamer.io;
+
+import com.silmood.spotify_streamer.io.model.ArtistSearchResponse;
+
+import retrofit.Callback;
+import retrofit.http.GET;
+import retrofit.http.Query;
+
+/**
+ * Created by Pedro Antonio Hernández on 16/06/2015.
+ *
+ * All methods that will make a request to Spotify API
+ */
+public interface SpotifyApiService {
+
+    @GET(SpotifyApiConstants.ARTIST_SEARCH_URL)
+    void searchArtist(@Query(SpotifyApiConstants.QUERY_TO_SEARCH) String query,
+                      Callback<ArtistSearchResponse> serverResponse);
+}

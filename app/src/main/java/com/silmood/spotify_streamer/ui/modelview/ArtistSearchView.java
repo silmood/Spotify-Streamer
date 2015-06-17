@@ -15,6 +15,8 @@ public interface ArtistSearchView {
 
     void setupAdapter();
 
+    void setupSearchInput();
+
     void resultsForArtistNotFound();
 
     void resultsForArtistFound();

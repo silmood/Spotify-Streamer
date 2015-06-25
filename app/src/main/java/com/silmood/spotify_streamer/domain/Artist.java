@@ -35,6 +35,16 @@ public class Artist {
         this.urlImage = urlImage;
     }
 
+    @Nullable
+    public SpotifyImage getMediumImage() {
+        assert urlImage != null;
+        if (urlImage.length >= 2) {
+            return urlImage[1];
+        }
+
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Artist{" +

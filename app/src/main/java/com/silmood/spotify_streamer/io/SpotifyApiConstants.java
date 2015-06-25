@@ -17,5 +17,5 @@ public class SpotifyApiConstants {
 
     public static final String ARTIST = "artist";
 
-    public static final String ARTIST_SEARCH_URL = BASE_URL + VERSION_PATH + SEARCH_PATH + TYPE_QUERY + "=" + ARTIST;
+    public static final String ARTIST_SEARCH_URL = VERSION_PATH + SEARCH_PATH + "?"+ TYPE_QUERY + "=" + ARTIST;
 }

@@ -14,10 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatEditText
+        <com.silmood.spotify_streamer.ui.view.ClearableEditText
             android:id="@+id/etxt_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_clear"
+            android:drawableEnd="@drawable/ic_clear"
             android:hint="@string/search_artist" />
 
     </android.support.design.widget.TextInputLayout>

@@ -2,6 +2,9 @@ package com.silmood.spotify_streamer.ui.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 
 import com.silmood.spotify_streamer.R;
@@ -9,10 +12,14 @@ import com.silmood.spotify_streamer.SpotifyStreamerComponent;
 import com.silmood.spotify_streamer.common.BaseFragment;
 import com.silmood.spotify_streamer.common.BasePresenter;
 import com.silmood.spotify_streamer.component.DaggerArtistSearchComponent;
+import com.silmood.spotify_streamer.domain.Artist;
 import com.silmood.spotify_streamer.module.ArtistSearchModule;
 import com.silmood.spotify_streamer.presenter.ArtistSearchPresenter;
 import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
 import com.silmood.spotify_streamer.ui.modelview.ArtistSearchView;
+import com.silmood.spotify_streamer.ui.view.ClearableEditText;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -26,7 +33,8 @@ import butterknife.InjectView;
  *     issue a search for an artist.
  * </p>
  */
-public class ArtistSearchFragment extends BaseFragment implements ArtistSearchView{
+public class ArtistSearchFragment extends BaseFragment implements ArtistSearchView {
+    public static final String LOG_TAG = ArtistSearchFragment.class.getSimpleName();
 
     @Inject
     ArtistSearchPresenter mSearchPresenter;
@@ -35,7 +43,7 @@ public class ArtistSearchFragment extends BaseFragment implements ArtistSearchVi
     SearchResultsAdapter mResultsAdapter;
 
     @InjectView(R.id.etxt_search)
-    EditText mArtistSearchInput;
+    ClearableEditText mArtistSearchInput;
 
     @InjectView(R.id.list_artist)
     RecyclerView mArtistResultsList;
@@ -72,16 +80,27 @@ public class ArtistSearchFragment extends BaseFragment implements ArtistSearchVi
 
     @Override
     public void setupSearchInput() {
-        mArtistSearchInput.addTextChangedListener(mSearchPresenter);
+        mArtistSearchInput.setQueryListener(mSearchPresenter);
     }
 
     @Override
-    public void resultsForArtistNotFound() {
+    public void displayFoundArtists(ArrayList<Artist> artists) {
+        mResultsAdapter.replace(artists);
+    }
+
+    @Override
+    public void displayFailedSearch() {
 
     }
 
     @Override
-    public void resultsForArtistFound() {
+    public void displayNetworkError() {
 
     }
+
+    @Override
+    public void displayServerError() {
+
+    }
+
 }

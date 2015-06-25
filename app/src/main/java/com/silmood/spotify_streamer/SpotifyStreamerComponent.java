@@ -3,6 +3,7 @@ package com.silmood.spotify_streamer;
 import android.content.Context;
 
 import com.silmood.spotify_streamer.interactor.ArtistSearchInteractor;
+import com.silmood.spotify_streamer.io.SpotifyApiService;
 import com.silmood.spotify_streamer.module.InteractorModule;
 
 import javax.inject.Singleton;
@@ -33,4 +34,5 @@ public interface SpotifyStreamerComponent {
 
     Context getContext();
     ArtistSearchInteractor getArtistSearchInteractor();
+    SpotifyApiService getSpotifyApiService();
 }

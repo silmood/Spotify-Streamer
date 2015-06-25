@@ -3,10 +3,14 @@ package com.silmood.spotify_streamer;
 import android.app.Application;
 import android.content.Context;
 
+import com.silmood.spotify_streamer.io.SpotifyApiAdapter;
+import com.silmood.spotify_streamer.io.SpotifyApiService;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit.RestAdapter;
 
 /**
  * The module due is create objects to solve dependencies
@@ -32,6 +36,14 @@ public class SpotifyStreamerModule {
 
     @Provides @Singleton public Context provideContext() {
         return app;
+    }
+
+    @Provides @Singleton public RestAdapter provideApiAdapter() {
+        return SpotifyApiAdapter.getInstance();
+    }
+
+    @Provides @Singleton public SpotifyApiService provideSpotifyApiService(RestAdapter adapter){
+        return adapter.create(SpotifyApiService.class);
     }
 
 }

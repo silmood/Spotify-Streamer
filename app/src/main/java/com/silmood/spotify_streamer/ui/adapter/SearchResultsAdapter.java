@@ -47,7 +47,12 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         Artist currentArtist = artists.get(position);
 
         holder.setArtistName(currentArtist.getName());
-        holder.setArtistImage(currentArtist.getUrlImage());
+
+        if(currentArtist.getMediumImage() != null)
+            holder.setArtistImage(currentArtist.getMediumImage().getUrl());
+
+        else
+            holder.setPlaceholderImage();
     }
 
     @Override
@@ -99,12 +104,17 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         notifyItemRangeInserted(getItemCount() - 1, artists.size());
     }
 
+    public void replace(ArrayList<Artist> artists){
+        this.artists = artists;
+        notifyDataSetChanged();
+    }
+
     /**
      * Delete all the items
      * */
     public void clear() {
         artists.clear();
-        notifyAll();
+        notifyDataSetChanged();
     }
 
     public void setOnItemClickListener(ItemClickListener clickListener) {
@@ -113,7 +123,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public static final int IMG_SIZE_DP = 96;
+        public static final int IMG_SIZE_DP = 112;
 
         public int IMG_SIZE_PX;
 
@@ -150,6 +160,14 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         public void setArtistImage(String urlImage) {
             Picasso.with(context)
                     .load(urlImage)
+                    .placeholder(R.drawable.artist_placeholder)
+                    .resize(IMG_SIZE_PX, IMG_SIZE_PX)
+                    .into(artistImage);
+        }
+
+        public void setPlaceholderImage() {
+            Picasso.with(context)
+                    .load(R.drawable.artist_placeholder)
                     .resize(IMG_SIZE_PX, IMG_SIZE_PX)
                     .into(artistImage);
         }
@@ -165,6 +183,6 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
          * This method will be invoked when an item from the list be clicked
          * @param position position in the list
          * */
-        public void onItemClicked(int position);
+        void onItemClicked(int position);
     }
 }

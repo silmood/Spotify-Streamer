@@ -7,7 +7,7 @@ import com.silmood.spotify_streamer.domain.Artist;
 import com.silmood.spotify_streamer.interactor.ArtistSearchInteractor;
 import com.silmood.spotify_streamer.io.callback.ArtistSearchServerCallback;
 import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
-import com.silmood.spotify_streamer.ui.modelview.ArtistSearchView;
+import com.silmood.spotify_streamer.ui.viewmodel.ArtistSearchView;
 import com.silmood.spotify_streamer.ui.view.ClearableEditText;
 
 import java.util.ArrayList;

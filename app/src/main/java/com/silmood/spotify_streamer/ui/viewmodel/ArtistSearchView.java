@@ -1,4 +1,4 @@
-package com.silmood.spotify_streamer.ui.modelview;
+package com.silmood.spotify_streamer.ui.viewmodel;
 
 import com.silmood.spotify_streamer.domain.Artist;
 import com.silmood.spotify_streamer.ui.activity.ArtistSearchActivity;

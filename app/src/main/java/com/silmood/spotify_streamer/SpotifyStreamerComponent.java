@@ -30,9 +30,6 @@ import dagger.Component;
 )
 public interface SpotifyStreamerComponent {
 
-    void inject (SpotifyStreamerApp app);
-
     Context getContext();
     ArtistSearchInteractor getArtistSearchInteractor();
-    SpotifyApiService getSpotifyApiService();
 }

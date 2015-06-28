@@ -7,7 +7,7 @@ import com.silmood.spotify_streamer.interactor.ArtistSearchInteractor;
 import com.silmood.spotify_streamer.presenter.ArtistSearchPresenter;
 import com.silmood.spotify_streamer.ui.activity.ArtistSearchActivity;
 import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
-import com.silmood.spotify_streamer.ui.modelview.ArtistSearchView;
+import com.silmood.spotify_streamer.ui.viewmodel.ArtistSearchView;
 
 import dagger.Module;
 import dagger.Provides;

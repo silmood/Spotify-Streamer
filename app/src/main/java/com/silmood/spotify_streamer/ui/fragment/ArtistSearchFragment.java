@@ -2,10 +2,7 @@ package com.silmood.spotify_streamer.ui.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.widget.EditText;
+import android.widget.Toast;
 
 import com.silmood.spotify_streamer.R;
 import com.silmood.spotify_streamer.SpotifyStreamerComponent;
@@ -16,7 +13,7 @@ import com.silmood.spotify_streamer.domain.Artist;
 import com.silmood.spotify_streamer.module.ArtistSearchModule;
 import com.silmood.spotify_streamer.presenter.ArtistSearchPresenter;
 import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
-import com.silmood.spotify_streamer.ui.modelview.ArtistSearchView;
+import com.silmood.spotify_streamer.ui.viewmodel.ArtistSearchView;
 import com.silmood.spotify_streamer.ui.view.ClearableEditText;
 
 import java.util.ArrayList;
@@ -90,17 +87,17 @@ public class ArtistSearchFragment extends BaseFragment implements ArtistSearchVi
 
     @Override
     public void displayFailedSearch() {
-
+        Toast.makeText(CONTEXT, R.string.failed_search, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void displayNetworkError() {
-
+        Toast.makeText(CONTEXT, R.string.network_error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void displayServerError() {
-
+        Toast.makeText(CONTEXT, R.string.server_error, Toast.LENGTH_SHORT).show();
     }
 
 }

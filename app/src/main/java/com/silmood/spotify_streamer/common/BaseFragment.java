@@ -41,7 +41,7 @@ public abstract class BaseFragment extends Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        injectViews(view);
+        bindViews(view);
         injectDependencies();
     }
 
@@ -56,6 +56,14 @@ public abstract class BaseFragment extends Fragment{
         super.onStop();
         getPresenter().onStop();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbindViews();
+
+    }
+
 
     /**
      * Specify the layout of the fragment to be inflated in the {@link BaseFragment#onCreateView(LayoutInflater, ViewGroup, Bundle)}
@@ -74,8 +82,12 @@ public abstract class BaseFragment extends Fragment{
     /**
      * Replace all the annotated fields with ButterKnife annotations with the proper value
      * */
-    private void injectViews(View rootView) {
-        ButterKnife.inject(this, rootView);
+    private void bindViews(View rootView) {
+        ButterKnife.bind(this, rootView);
+    }
+
+    private void unbindViews() {
+        ButterKnife.unbind(this);
     }
 
     /**

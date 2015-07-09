@@ -18,7 +18,7 @@ import retrofit.RetrofitError;
  * Created by Pedro Antonio Hernández on 13/06/2015.
  *
  */
-public class ArtistSearchPresenter extends BasePresenter implements SearchResultsAdapter.ItemClickListener, ClearableEditText.QueryListener, ArtistSearchServerCallback {
+public class ArtistSearchPresenter extends BasePresenter implements ArtistSearchServerCallback {
     public static final String LOG_TAG = ArtistSearchPresenter.class.getSimpleName();
 
     ArtistSearchView searchView;
@@ -33,7 +33,6 @@ public class ArtistSearchPresenter extends BasePresenter implements SearchResult
     public void onStart() {
         searchView.setupAdapter();
         searchView.setupList();
-        searchView.setupSearchInput();
     }
 
     @Override
@@ -41,13 +40,8 @@ public class ArtistSearchPresenter extends BasePresenter implements SearchResult
 
     }
 
-    @Override
-    public void onItemClicked(int position) {
 
-    }
-
-    @Override
-    public void onQueryChangeListener(String query) {
+    public void searchArtists(String query) {
         searchInteractor.performSearch(query, this);
     }
 

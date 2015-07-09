@@ -18,8 +18,6 @@ public interface ArtistSearchView {
 
     void setupAdapter();
 
-    void setupSearchInput();
-
     void displayFoundArtists(ArrayList<Artist> artists);
 
     void displayFailedSearch();

@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.InjectView;
+import butterknife.OnTextChanged;
+
 
 /**
  * Created by Pedro Antonio Hernández on 14/06/2015.
@@ -30,7 +32,7 @@ import butterknife.InjectView;
  *     issue a search for an artist.
  * </p>
  */
-public class ArtistSearchFragment extends BaseFragment implements ArtistSearchView {
+public class ArtistSearchFragment extends BaseFragment implements ArtistSearchView, SearchResultsAdapter.ItemClickListener {
     public static final String LOG_TAG = ArtistSearchFragment.class.getSimpleName();
 
     @Inject
@@ -72,12 +74,13 @@ public class ArtistSearchFragment extends BaseFragment implements ArtistSearchVi
 
     @Override
     public void setupAdapter() {
-        mResultsAdapter.setOnItemClickListener(mSearchPresenter);
+        mResultsAdapter.setOnItemClickListener(this);
     }
 
-    @Override
-    public void setupSearchInput() {
-        mArtistSearchInput.setQueryListener(mSearchPresenter);
+    @OnTextChanged(R.id.etxt_search)
+    public void onQueryChanged(CharSequence query){
+        if (query.length() >= 3)
+            mSearchPresenter.searchArtists(query.toString());
     }
 
     @Override
@@ -100,4 +103,8 @@ public class ArtistSearchFragment extends BaseFragment implements ArtistSearchVi
         Toast.makeText(CONTEXT, R.string.server_error, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onItemClicked(int position) {
+        //Launch artist detail
+    }
 }

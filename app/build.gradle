@@ -3,7 +3,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.0 rc2"
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "com.silmood.spotify_streamer"
@@ -29,6 +29,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'io.reactivex:rxandroid:0.25.0'
 
     //Dagger 2 configuration
     compile 'com.google.dagger:dagger:2.1-SNAPSHOT'

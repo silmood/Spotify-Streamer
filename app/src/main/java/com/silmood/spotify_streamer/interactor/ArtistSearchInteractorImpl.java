@@ -7,6 +7,10 @@ import com.silmood.spotify_streamer.io.model.ArtistSearchResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Pedro Antonio Hernández on 13/06/2015.
@@ -42,5 +46,22 @@ public class ArtistSearchInteractorImpl implements ArtistSearchInteractor {
                     callback.onServerError(error);
             }
         });
+    }
+
+    @Override
+    public void performSearch(String query) {
+        apiService.searchArtist(query)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<ArtistSearchResponse>() {
+                    @Override
+                    public void call(ArtistSearchResponse artistSearchResponse) {
+                        artistSearchResponse.getArtists();
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        throwable.printStackTrace();
+                    }
+                });
     }
 }

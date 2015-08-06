@@ -91,10 +91,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * Every object annotated with {@link butterknife.InjectView} its gonna injected trough butterknife
+     * Every object annotated with {@link butterknife.Bind} its gonna injected trough butterknife
      */
     private void injectViews() {
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
 

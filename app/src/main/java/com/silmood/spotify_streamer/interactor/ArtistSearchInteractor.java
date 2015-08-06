@@ -9,4 +9,6 @@ import com.silmood.spotify_streamer.io.callback.ArtistSearchServerCallback;
 public interface ArtistSearchInteractor {
 
     void performSearch(String query, ArtistSearchServerCallback callback);
+
+    void performSearch(String query);
 }

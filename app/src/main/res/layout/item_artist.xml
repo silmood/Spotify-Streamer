@@ -3,6 +3,8 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
+    android:clickable="true"
+    android:background="@drawable/background_item_artist"
     android:padding="8dp">
 
     <de.hdodenhof.circleimageview.CircleImageView

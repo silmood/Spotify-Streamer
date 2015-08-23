@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class ArtistSearchResponse {
 
-    @SerializedName(Constants.ARTISTS_RESPONSE)
+    @SerializedName("artists")
     ArtistsResponse artistsResponse;
 
     public ArrayList<Artist> getArtists() {
@@ -20,7 +20,7 @@ public class ArtistSearchResponse {
     }
 
     private class ArtistsResponse {
-        @SerializedName(Constants.ITEMS)
+        @SerializedName("items")
         ArrayList<Artist> artists;
     }
 }

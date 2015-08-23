@@ -81,6 +81,8 @@ public class ArtistSearchFragment extends BaseFragment implements ArtistSearchVi
     public void onQueryChanged(CharSequence query){
         if (query.length() >= 3)
             mSearchPresenter.searchArtists(query.toString());
+        else if (query.length() <= 2)
+            mResultsAdapter.clear();
     }
 
     @Override

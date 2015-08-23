@@ -7,9 +7,7 @@ import com.silmood.spotify_streamer.io.model.ArtistSearchResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -30,7 +28,7 @@ public class ArtistSearchInteractorImpl implements ArtistSearchInteractor {
         apiService.searchArtist(query, new Callback<ArtistSearchResponse>() {
             @Override
             public void success(ArtistSearchResponse artistSearchResponse, Response response) {
-                if(artistSearchResponse.getArtists().isEmpty())
+                if (artistSearchResponse.getArtists().isEmpty())
                     callback.onFailedSearch();
 
                 else
@@ -46,22 +44,15 @@ public class ArtistSearchInteractorImpl implements ArtistSearchInteractor {
                     callback.onServerError(error);
             }
         });
+
     }
 
     @Override
     public void performSearch(String query) {
         apiService.searchArtist(query)
+                .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<ArtistSearchResponse>() {
-                    @Override
-                    public void call(ArtistSearchResponse artistSearchResponse) {
-                        artistSearchResponse.getArtists();
-                    }
-                }, new Action1<Throwable>() {
-                    @Override
-                    public void call(Throwable throwable) {
-                        throwable.printStackTrace();
-                    }
-                });
+                .subscribe(ArtistSearchResponse::getArtists,
+                        Throwable::printStackTrace);
     }
 }

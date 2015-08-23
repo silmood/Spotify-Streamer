@@ -15,8 +15,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -113,8 +113,10 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
      * Delete all the items
      * */
     public void clear() {
-        artists.clear();
-        notifyDataSetChanged();
+        if (!artists.isEmpty()) {
+            artists.clear();
+            notifyDataSetChanged();
+        }
     }
 
     public void setOnItemClickListener(ItemClickListener clickListener) {
@@ -127,16 +129,16 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
         public int IMG_SIZE_PX;
 
-        @InjectView(R.id.img_artist)
+        @Bind(R.id.img_artist)
         CircleImageView artistImage;
 
-        @InjectView(R.id.txt_artist_name)
+        @Bind(R.id.txt_artist_name)
         TextView artistName;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

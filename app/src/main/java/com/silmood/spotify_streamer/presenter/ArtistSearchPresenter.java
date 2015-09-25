@@ -1,18 +1,12 @@
 package com.silmood.spotify_streamer.presenter;
 
-import android.util.Log;
-
 import com.silmood.spotify_streamer.common.BasePresenter;
 import com.silmood.spotify_streamer.domain.Artist;
 import com.silmood.spotify_streamer.interactor.ArtistSearchInteractor;
 import com.silmood.spotify_streamer.io.callback.ArtistSearchServerCallback;
-import com.silmood.spotify_streamer.ui.adapter.SearchResultsAdapter;
 import com.silmood.spotify_streamer.ui.viewmodel.ArtistSearchView;
-import com.silmood.spotify_streamer.ui.view.ClearableEditText;
 
 import java.util.ArrayList;
-
-import retrofit.RetrofitError;
 
 /**
  * Created by Pedro Antonio Hernández on 13/06/2015.
@@ -56,14 +50,12 @@ public class ArtistSearchPresenter extends BasePresenter implements ArtistSearch
     }
 
     @Override
-    public void onNetworkError(RetrofitError error) {
-        error.printStackTrace();
+    public void onNetworkError() {
         searchView.displayNetworkError();
     }
 
     @Override
-    public void onServerError(RetrofitError error) {
-        error.printStackTrace();
+    public void onServerError() {
         searchView.displayServerError();
     }
 }

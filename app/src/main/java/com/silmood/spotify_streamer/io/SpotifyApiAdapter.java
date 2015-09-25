@@ -1,6 +1,8 @@
 package com.silmood.spotify_streamer.io;
 
-import retrofit.RestAdapter;
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
+import retrofit.RxJavaCallAdapterFactory;
 
 /**
  * Created by Pedro Antonio Hernández on 16/06/2015.
@@ -9,17 +11,18 @@ import retrofit.RestAdapter;
  */
 public class SpotifyApiAdapter {
 
-    private static RestAdapter API_ADAPTER;
+    private static Retrofit RETROFIT;
 
-    public static RestAdapter getInstance(){
+    public static Retrofit getInstance(){
         //The adapter will be a singleton
-        if(API_ADAPTER == null)
-            API_ADAPTER = new RestAdapter.Builder()
-                    .setLogLevel(RestAdapter.LogLevel.BASIC)
-                    .setEndpoint(SpotifyApiConstants.BASE_URL)
+        if(RETROFIT == null)
+            RETROFIT = new Retrofit.Builder()
+                    .baseUrl(SpotifyApiConstants.BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
 
 
-        return API_ADAPTER;
+        return RETROFIT;
     }
 }

@@ -2,7 +2,6 @@ package com.silmood.spotify_streamer.module;
 
 import com.silmood.spotify_streamer.SpotifyStreamerComponent;
 import com.silmood.spotify_streamer.interactor.ArtistSearchInteractor;
-import com.silmood.spotify_streamer.interactor.ArtistSearchInteractorImpl;
 import com.silmood.spotify_streamer.io.SpotifyApiService;
 
 import dagger.Module;
@@ -22,7 +21,7 @@ public class InteractorModule {
 
     @Provides
     public ArtistSearchInteractor provideArtistSearchInteractor(SpotifyApiService apiService){
-        return new ArtistSearchInteractorImpl(apiService);
+        return new ArtistSearchInteractor(apiService);
     }
 
 }

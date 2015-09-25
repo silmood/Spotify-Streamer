@@ -1,6 +1,5 @@
 package com.silmood.spotify_streamer.io.callback;
 
-import retrofit.RetrofitError;
 
 /**
  * Created by Pedro Antonio Hernández on 21/06/2015.
@@ -11,7 +10,7 @@ import retrofit.RetrofitError;
  *
  */
 public interface ServerCallback {
-    void onNetworkError(RetrofitError error);
+    void onNetworkError();
 
-    void onServerError(RetrofitError error);
+    void onServerError();
 }

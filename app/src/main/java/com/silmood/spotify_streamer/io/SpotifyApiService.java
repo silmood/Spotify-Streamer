@@ -15,9 +15,5 @@ import rx.Observable;
 public interface SpotifyApiService {
 
     @GET(SpotifyApiConstants.ARTIST_SEARCH_URL)
-    void searchArtist(@Query(SpotifyApiConstants.QUERY_TO_SEARCH) String query,
-                      Callback<ArtistSearchResponse> serverResponse);
-
-    @GET(SpotifyApiConstants.ARTIST_SEARCH_URL)
     Observable<ArtistSearchResponse> searchArtist(@Query(SpotifyApiConstants.QUERY_TO_SEARCH) String query);
 }

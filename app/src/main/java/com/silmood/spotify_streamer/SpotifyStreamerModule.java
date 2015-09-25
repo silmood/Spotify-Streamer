@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import retrofit.RestAdapter;
+import retrofit.Retrofit;
 
 /**
  * The module due is create objects to solve dependencies
@@ -38,12 +38,12 @@ public class SpotifyStreamerModule {
         return app;
     }
 
-    @Provides @Singleton public RestAdapter provideApiAdapter() {
+    @Provides @Singleton public Retrofit provideRetrofitInstance() {
         return SpotifyApiAdapter.getInstance();
     }
 
-    @Provides @Singleton public SpotifyApiService provideSpotifyApiService(RestAdapter adapter){
-        return adapter.create(SpotifyApiService.class);
+    @Provides @Singleton public SpotifyApiService provideSpotifyApiService(Retrofit retrofit){
+        return retrofit.create(SpotifyApiService.class);
     }
 
 }

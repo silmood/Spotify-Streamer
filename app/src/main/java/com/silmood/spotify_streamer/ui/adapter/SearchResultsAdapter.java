@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -129,10 +129,10 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
         public int IMG_SIZE_PX;
 
-        @Bind(R.id.img_artist)
+        @BindView(R.id.img_artist)
         CircleImageView artistImage;
 
-        @Bind(R.id.txt_artist_name)
+        @BindView(R.id.txt_artist_name)
         TextView artistName;
 
         public ViewHolder(View itemView) {

@@ -2,9 +2,8 @@ package com.silmood.spotify_streamer.io;
 
 import com.silmood.spotify_streamer.io.model.ArtistSearchResponse;
 
-import retrofit.Callback;
-import retrofit.http.GET;
-import retrofit.http.Query;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**

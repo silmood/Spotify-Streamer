@@ -87,7 +87,7 @@ public abstract class BaseFragment extends Fragment{
     }
 
     private void unbindViews() {
-        ButterKnife.unbind(this);
+        //ButterKnife.unbind(this);
     }
 
     /**

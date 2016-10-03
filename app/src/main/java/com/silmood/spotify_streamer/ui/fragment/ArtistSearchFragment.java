@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnTextChanged;
 
 
@@ -41,10 +41,10 @@ public class ArtistSearchFragment extends BaseFragment implements ArtistSearchVi
     @Inject
     SearchResultsAdapter mResultsAdapter;
 
-    @Bind(R.id.etxt_search)
+    @BindView(R.id.etxt_search)
     ClearableEditText mArtistSearchInput;
 
-    @Bind(R.id.list_artist)
+    @BindView(R.id.list_artist)
     RecyclerView mArtistResultsList;
 
     @Override

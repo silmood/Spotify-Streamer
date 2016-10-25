@@ -1,0 +1,94 @@
+ext {
+
+    //Packages
+    supportPackage = 'com.android.support'
+    retrofitPackage = 'com.squareup.retrofit2'
+    jakeWhartonPackage = 'com.jakewharton'
+    glidePackage = 'com.github.bumptech.glide'
+    hdodenhofPackage = 'de.hdodenhof'
+    reactivePackage = 'io.reactivex'
+    eventBusPackage = 'de.greenrobot'
+    okHttpPackage = 'com.squareup.okhttp3'
+    daggerPackage = 'com.google.dagger'
+    playServicesPackage = 'com.google.android.gms'
+    facebookPackage = 'com.facebook.android'
+    javaAnnotationsPackage = 'javax.annotation'
+    googlePackage = 'com.google.android'
+
+    //Version
+    supportVersion = '23.2.1'
+    retrofitVersion = '2.1.0'
+    okhttpVersion = '3.3.1'
+    circleImageVersion = '2.0.0'
+    butterknifeVersion = '8.3.0'
+    glideVersion = '3.7.0'
+    rxJavaVersion = '1.1.6'
+    rxAndroidVersion = '1.2.1'
+    daggerVersion = '2.5'
+    playServicesVersion = '8.4.0'
+    facebookVersion = '4.7.0'
+    javaAnnotationsVersion = '1.0'
+
+    daggerDependencies = [
+            compiler: buildDependency(daggerPackage, 'dagger-compiler', daggerVersion),
+            dagger  : buildDependency(daggerPackage, 'dagger', daggerVersion)
+    ]
+    supportDependencies = [
+            design           : buildDependency(supportPackage, 'design', supportVersion),
+            recyclerView     : buildDependency(supportPackage, 'recyclerview-v7', supportVersion),
+            cardView         : buildDependency(supportPackage, 'cardview-v7', supportVersion),
+            appCompat        : buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+            supportAnnotation: buildDependency(supportPackage, 'support-annotations', supportVersion),
+            palette          : buildDependency(supportPackage, 'palette-v7', supportVersion),
+            percent          : buildDependency(supportPackage, 'percent', supportVersion),
+            customTabs       : buildDependency(supportPackage, 'customtabs', supportVersion)
+    ]
+
+    retrofitDependencies = [
+            retrofit          : buildDependency(retrofitPackage, 'retrofit', retrofitVersion),
+            gson              : buildDependency(retrofitPackage, 'converter-gson', retrofitVersion),
+            rxJava            : buildDependency(retrofitPackage, 'adapter-rxjava', retrofitVersion),
+            loggingInterceptor: buildDependency(okHttpPackage, 'logging-interceptor', okhttpVersion)
+    ]
+
+    rxDependencies = [
+            rxJava   : buildDependency(reactivePackage, 'rxjava', rxJavaVersion),
+            rxAndroid: buildDependency(reactivePackage, 'rxandroid', rxAndroidVersion)
+    ]
+
+    whartonDependencies = [
+            butterknifeCompiler : buildDependency(jakeWhartonPackage, 'butterknife-compiler', butterknifeVersion),
+            butterknife: buildDependency(jakeWhartonPackage, 'butterknife', butterknifeVersion)
+    ]
+
+    playServicesDependencies = [
+            maps    : buildDependency(playServicesPackage, 'play-services-maps', playServicesVersion),
+            location: buildDependency(playServicesPackage, 'play-services-location', playServicesVersion)
+    ]
+
+    glide = buildDependency(glidePackage, 'glide', glideVersion)
+    circleImageView = buildDependency(hdodenhofPackage, 'circleimageview', circleImageVersion)
+    facebookSdk = buildDependency(facebookPackage, 'facebook-android-sdk', facebookVersion)
+    javaAnnotations = buildDependency(javaAnnotationsPackage, 'jsr250-api', javaAnnotationsVersion)
+    flexbox = buildDependency(googlePackage, 'flexbox', '0.2.2')
+
+    appDependencies = [
+            [configuration: "compile", dependency: supportDependencies.appCompat],
+            [configuration: "compile", dependency: supportDependencies.design],
+            [configuration: "compile", dependency: supportDependencies.recyclerView],
+            [configuration: "apt", dependency: whartonDependencies.butterknifeCompiler],
+            [configuration: "compile", dependency: whartonDependencies.butterknife],
+            [configuration: "compile", dependency: circleImageView],
+            [configuration: "compile", dependency: rxDependencies.rxJava],
+            [configuration: "compile", dependency: rxDependencies.rxAndroid],
+            [configuration: "compile", dependency: retrofitDependencies.retrofit],
+            [configuration: "compile", dependency: retrofitDependencies.rxJava],
+            [configuration: "compile", dependency: retrofitDependencies.gson],
+            [configuration: "compile", dependency: daggerDependencies.dagger],
+            [configuration: "apt", dependency: daggerDependencies.compiler],
+    ]
+}
+
+String buildDependency(String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}

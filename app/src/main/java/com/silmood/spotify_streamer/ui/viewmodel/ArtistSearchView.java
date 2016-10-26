@@ -14,10 +14,6 @@ import java.util.ArrayList;
  */
 public interface ArtistSearchView {
 
-    void setupList();
-
-    void setupAdapter();
-
     void displayFoundArtists(ArrayList<Artist> artists);
 
     void displayFailedSearch();

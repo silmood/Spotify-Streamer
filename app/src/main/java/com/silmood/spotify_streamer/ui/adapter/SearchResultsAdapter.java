@@ -138,7 +138,9 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         public ViewHolder(View itemView) {
             super(itemView);
 
-            ButterKnife.bind(this, itemView);
+            artistImage = (CircleImageView) itemView.findViewById(R.id.img_artist);
+            artistName = (TextView) itemView.findViewById(R.id.txt_artist_name);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

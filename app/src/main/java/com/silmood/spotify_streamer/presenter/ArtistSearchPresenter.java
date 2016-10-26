@@ -25,8 +25,6 @@ public class ArtistSearchPresenter extends BasePresenter implements ArtistSearch
 
     @Override
     public void onStart() {
-        searchView.setupAdapter();
-        searchView.setupList();
     }
 
     @Override

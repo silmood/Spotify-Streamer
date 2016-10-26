@@ -6,8 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/search_input_layout"
@@ -15,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <com.silmood.spotify_streamer.ui.view.ClearableEditText
-            android:id="@+id/etxt_search"
+            android:id="@+id/input_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_clear"

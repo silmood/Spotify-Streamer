@@ -24,7 +24,7 @@ ext {
     glideVersion = '3.7.0'
     rxJavaVersion = '1.1.6'
     rxAndroidVersion = '1.2.1'
-    daggerVersion = '2.5'
+    daggerVersion = '2.2'
     playServicesVersion = '8.4.0'
     facebookVersion = '4.7.0'
     javaAnnotationsVersion = '1.0'
@@ -85,7 +85,8 @@ ext {
             [configuration: "compile", dependency: retrofitDependencies.rxJava],
             [configuration: "compile", dependency: retrofitDependencies.gson],
             [configuration: "compile", dependency: daggerDependencies.dagger],
-            [configuration: "apt", dependency: daggerDependencies.compiler],
+            [configuration: "kapt", dependency: daggerDependencies.compiler],
+            [configuration: "provided", dependency: javaAnnotations]
     ]
 }
 

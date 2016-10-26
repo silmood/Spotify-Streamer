@@ -1,7 +1,7 @@
 package com.silmood.spotify_streamer.component;
 
-import com.silmood.spotify_streamer.ActivityScope;
 import com.silmood.spotify_streamer.SpotifyStreamerComponent;
+import com.silmood.spotify_streamer.common.ActivityScope;
 import com.silmood.spotify_streamer.module.ArtistSearchModule;
 import com.silmood.spotify_streamer.presenter.ArtistSearchPresenter;
 import com.silmood.spotify_streamer.ui.activity.ArtistSearchActivity;

@@ -32,6 +32,11 @@ public abstract class BaseFragment extends Fragment{
         CONTEXT = activity;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        injectDependencies();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +47,6 @@ public abstract class BaseFragment extends Fragment{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindViews(view);
-        injectDependencies();
     }
 
     @Override
@@ -75,8 +79,11 @@ public abstract class BaseFragment extends Fragment{
      * */
     protected abstract BasePresenter getPresenter();
 
-    private void injectDependencies() {
-        setUpComponent(SpotifyStreamerApp.getApp(getActivity()).getComponent());
+    /**
+     * Override this method in case you need to inject dependencies
+     */
+    public void injectDependencies() {
+
     }
 
     /**
@@ -93,6 +100,7 @@ public abstract class BaseFragment extends Fragment{
     /**
      * This method will setup the injector and will commit the dependencies injections.
      * */
-    protected abstract void setUpComponent(SpotifyStreamerComponent component);
+    @Deprecated
+    protected void setUpComponent(SpotifyStreamerComponent component){}
 
 }
